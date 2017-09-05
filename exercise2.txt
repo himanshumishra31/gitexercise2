@@ -24,3 +24,65 @@ git tag 1.0.0
 
 # perform some changes in previous files and create another tag 1.0.1.
 
+git add -u # adds all modified files to staging area
+
+git commit -m "changes made"
+output
+[master 34a5c53] changes made
+ 3 files changed, 18 insertions(+)
+
+git tag 1.0.1
+
+# create another file file3 and create a tag 1.1.0.
+
+touch file3.rb
+
+git add file3.rb
+
+git commit -m "Added file3.rb"
+output
+[master 49e31f7] Added file3.rb
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3.rb
+
+git tag 1.1.0
+
+# Now in 1.0.1 release, do some changes in existing files and create another tag 1.0.2.
+
+git checkout -b new_branch 1.0.1
+output
+Switched to a new branch 'new_branch'
+
+git add -u # changes made in file3.rb
+
+git commit -m "changes in file3.rb"
+output
+[new_branch 2a6715b] changes in file3.rb
+ 1 file changed, 1 insertion(+)
+
+git rebase master
+output
+Applying: changes in file3.rb
+
+git checkout master
+
+git merge new_branch
+output
+Updating 49e31f7..09711fe
+Fast-forward
+ file3.rb | 1 +
+ 1 file changed, 1 insertion(+)
+
+# Also do some changes in release 1.1.0, create a tag for next release 1.1.1
+
+git add -u # changes made in file1.rb for new release
+
+git commit -m "changes in file1.rb for new release"
+output
+[master 0d77432] changes in file1.rb for new release
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+git tag 1.1.1
+
+git push origin master --all
+
