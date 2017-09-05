@@ -8,3 +8,19 @@ git remote add origin https://github.com/himanshumishra31/gitexercise2.git
 
 # Create two files in master branch, then create a tag 1.0.0 for first release from master
 
+touch file1.rb
+touch file2.rb
+
+git add .
+git commit -m "initialised repository with 3 files"
+output
+[master (root-commit) 9128ab0] initialised repository with 3 files
+ 3 files changed, 12 insertions(+)
+ create mode 100644 exercise2.txt
+ create mode 100644 file1.rb
+ create mode 100644 file2.rb
+
+git tag 1.0.0
+
+# perform some changes in previous files and create another tag 1.0.1.
+
