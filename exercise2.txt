@@ -1,0 +1,10 @@
+# Create a repository and push to github.
+mkdir gitexercise2
+cd gitexercise2
+
+git init
+
+git remote add origin https://github.com/himanshumishra31/gitexercise2.git
+
+# Create two files in master branch, then create a tag 1.0.0 for first release from master
+
